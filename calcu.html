@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate</title>
+    <style>
+        
+
+        button {
+            padding: 15px;
+            font-size: 1.2em;
+            border: #45a049;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<h2>calculate for fun</h2>
+<input type="text" id="res">
+
+<br><br>
+
+<button onclick="digits('1')">1</button>
+<button onclick="digits('2')">2</button>
+<button onclick="digits('3')">3</button>
+<button onclick="oper('+')">+</button>
+
+<br>
+
+<button onclick="digits('4')">4</button>
+<button onclick="digits('5')">5</button>
+<button onclick="digits('6')">6</button>
+<button onclick="oper('-')">-</button>
+
+<br>
+
+<button onclick="digits('7')">7</button>
+<button onclick="digits('8')">8</button>
+<button onclick="digits('9')">9</button>
+<button onclick="oper('*')">*</button>
+
+<br>
+
+<button onclick="digits('0')">0</button>
+<button onclick="cleanDis()">C</button>
+<button onclick="calRes()">=</button>
+<button onclick="oper('/')">/</button>
+<br>
+<h2>bonus section</h2>
+<br>
+<button onclick="powerIt()">power</button>
+<button onclick="squareIt()">sqareroot</button>
+<body>
+    <script>
+        let currentResult = '';
+
+        function digits(value) {
+            currentResult += value;
+            updateResult();
+        }
+        function oper(operation) {
+            currentResult += ` ${operation} `;
+            updateResult();
+        }
+        function cleanDis() {
+            console.log('test')
+            currentResult = '';
+            updateResult();
+        }
+        function calRes() {
+            try {
+                currentResult = eval(currentResult).toString();
+                updateResult();
+            } catch (error) {
+                currentResult = 'Error';
+                updateResult();
+            }
+        }
+        function updateResult() {
+            document.getElementById('res').value = currentResult;
+        }
+        function powerIt() {
+            currentResult = currentResult * currentResult;
+            updateResult();
+        }
+        function squareIt() {
+            currentResult = Math.sqrt(currentResult);
+            updateResult();
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
